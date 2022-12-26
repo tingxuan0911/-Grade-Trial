@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #000;
+        }
+
+        input {
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <p>成績查詢 :</p>
+        <input class="score" type="text">
+        <button class="btn">計算成績</button>
+
+
+    </div>
+
+    <p id="result"></p>
+
+
+    <script>
+
+        var btn = document.querySelector('.btn')
+        var result = document.querySelector('#result')
+        var input = document.querySelector('.score')
+
+
+        btn.onclick = function () {
+            var score = input.value
+
+            console.log(parseInt(score))
+
+            if (isNaN(parseInt(score))) {
+                result.innerHTML = '請輸入數字'
+            } else if (score < 0) {
+                result.innerHTML = '請正確輸入0~100的整數!!'
+            } else if (score % 1 != 0) {
+                result.innerHTML = '請輸入整數'
+            } else if (score > 100) {
+                result.innerHTML = '分數爆了請檢查!!'
+            } else {
+                if (score == 100) {
+                    result.innerHTML = '你的分數是100分，你的成績是perfect'
+                } else if (score >= 90) {
+                    result.innerHTML = '你的分數是' + score + '分，你的成績是A+'
+                } else if (score >= 80) {
+                    result.innerHTML = '你的分數是' + score + '分，你的成績是A'
+                } else if (score >= 70) {
+                    result.innerHTML = '你的分數是' + score + '分，你的成績是B'
+                } else if (score >= 60) {
+                    result.innerHTML = '你的分數是' + score + '分，你的成績是C'
+                } else if (score <= 59) {
+                    result.innerHTML = '你的分數是' + score + '分，你的成績是D'
+                }
+            }
+        }
+
+
+
+        // var score = 75
+        // if (score == 100) {
+        //     console.log('perfect')
+        // } else if (score >= 90) {
+        //     console.log('A+')
+        // } else if (score >= 80) {
+        //     console.log('A')
+        // } else if (score >= 70) {
+        //     console.log('B')
+        // } else if (score >= 60) {
+        //     console.log('C')
+        // } else if (score <= 59) {
+        //     console.log('D')
+        // }
+
+
+    </script>
+</body>
+
+</html>
